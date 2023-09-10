@@ -10,3 +10,4 @@ services:
       - TUNNEL_TOKEN=$CF_TOKEN
   console:
     image: ubuntu
+    command: bash &
