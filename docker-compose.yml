@@ -19,7 +19,6 @@ services:
         limits:
           memory: 2.5G
   tunnel:
-    #restart: always
     image: cloudflare/cloudflared
     command: tunnel run
     environment:
