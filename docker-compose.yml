@@ -8,8 +8,6 @@ services:
       TYPE: PAPER
       DIFFICULTY: peaceful
       MEMORY: 2G
-    ports:
-      - 25565:25565
     volumes:
       - mcData:/data
     tty: true
