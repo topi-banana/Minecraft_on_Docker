@@ -26,9 +26,9 @@ services:
       - TUNNEL_TOKEN=$CF_TOKEN
   git:
     image: bitnami/git
+    command: git clone https://github.com/topi-banana/Minecraft_on_Docker /repo
     volumes:
       - mcData:/repo
-    commnad: git clone https://github.com/topi-banana/Minecraft_on_Docker /repo
   console:
     image: ubuntu
     command: sleep infinity
