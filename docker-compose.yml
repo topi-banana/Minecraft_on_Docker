@@ -28,6 +28,8 @@ services:
     image: bitnami/git
     working_dir: /repo
     command: git clone https://github.com/topi-banana/Minecraft_on_Docker /cloned && mv /cloned/* /repo
+    tty: true
+    stdin_open: true
     volumes:
       - mcData:/repo
   console:
