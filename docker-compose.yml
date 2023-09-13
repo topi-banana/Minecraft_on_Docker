@@ -8,6 +8,7 @@ services:
       TYPE: PAPER
       DIFFICULTY: peaceful
       MEMORY: 2G
+      OPS: topi_banana
     volumes:
       - mcData:/data
     tty: true
