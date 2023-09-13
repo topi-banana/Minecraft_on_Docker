@@ -26,7 +26,11 @@ services:
       - TUNNEL_TOKEN=$CF_TOKEN
   git:
     image: bitnami/git
-    command: git clone https://github.com/topi-banana/Minecraft_on_Docker /repo
+    working_dir: /repo
+    command: git init; \
+            git remote add origin https://github.com/topi-banana/Minecraft_on_Docker; \
+            git fetch --all --prune; \
+            git pull origin main;
     volumes:
       - mcData:/repo
   console:
