@@ -17,11 +17,26 @@ services:
       resources:
         limits:
           memory: 2.5G
+    depends_on:
+      - filebrowser
+  filebrowser:
+    image: filebrowser/filebrowser
+    volumes:
+      - mcData:/srv
+    depends_on:
+      - tunnel
   tunnel:
     image: cloudflare/cloudflared
     command: tunnel run
     environment:
       - TUNNEL_TOKEN=$CF_TOKEN
+    depends_on:
+      - console
+  console:
+    image: ubuntu
+    command: sleep infinity
+    depends_on:
+      - git
   git:
     image: bitnami/git
     working_dir: /repo
@@ -33,13 +48,6 @@ services:
     stdin_open: true
     volumes:
       - mcData:/repo
-  console:
-    image: ubuntu
-    command: sleep infinity
-  filebrowser:
-    image: filebrowser/filebrowser
-    volumes:
-      - mcData:/srv
 
 volumes:
   mcData:
