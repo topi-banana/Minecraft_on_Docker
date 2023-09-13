@@ -27,10 +27,7 @@ services:
   git:
     image: bitnami/git
     working_dir: /repo
-    command: git init; \
-            git remote add origin https://github.com/topi-banana/Minecraft_on_Docker; \
-            git fetch --all --prune; \
-            git pull origin main;
+    command: git clone https://github.com/topi-banana/Minecraft_on_Docker /cloned && mv /cloned/* /repo
     volumes:
       - mcData:/repo
   console:
