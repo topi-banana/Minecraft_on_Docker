@@ -31,10 +31,10 @@ services:
     image: filebrowser/filebrowser
     volumes:
       - mcData:/srv
-      - fbDB:/database.db
-      - fbJson:/.filebrowser.json
+      #- fbDB:/database.db
+      #- fbJson:/.filebrowser.json
 
 volumes:
   mcData:
-  fbDB:
-  fbJson:
+  #fbDB:
+  #fbJson:
