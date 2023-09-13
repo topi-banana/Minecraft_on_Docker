@@ -1,7 +1,23 @@
 version: '3'
 services:
   app:
-    image: nginx
+    image: itzg/minecraft-server
+    environment:
+      EULA: "TRUE"
+      TZ: Asia/Tokyo
+      TYPE: PAPER
+      DIFFICULTY: peaceful
+      MEMORY: 2G
+    ports:
+      - 25565:25565
+    volumes:
+      - mcData:/data
+    tty: true
+    stdin_open: true
+    deploy:
+      resources:
+        limits:
+          memory: 2.5G
   tunnel:
     #restart: always
     image: cloudflare/cloudflared
@@ -11,3 +27,14 @@ services:
   console:
     image: ubuntu
     command: sleep infinity
+  filebrowser:
+    image: filebrowser/filebrowser
+    volumes:
+      - mcData:/srv
+      - fbDB:/database.db
+      - fbJson:/.filebrowser.json
+
+volumes:
+  mcData:
+  fbDB:
+  fbJson:
