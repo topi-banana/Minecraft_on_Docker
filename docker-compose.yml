@@ -14,9 +14,12 @@ services:
     tty: true
     stdin_open: true
     deploy:
+      placement:
+        constraints:
+         - node.hostname == worker02
       resources:
         limits:
-          memory: 2.5G
+          memory: 2560M
     depends_on:
       - filebrowser
   filebrowser:
