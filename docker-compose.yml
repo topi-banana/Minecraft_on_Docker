@@ -16,7 +16,7 @@ services:
     deploy:
       placement:
         constraints:
-         - node.hostname == worker02
+         - node.hostname == worker01
       resources:
         limits:
           memory: 2560M
