@@ -45,8 +45,10 @@ services:
     working_dir: /repo
     command: |
       sh -c
-      "git clone https://github.com/topi-banana/Minecraft_on_Docker /cloned &&
-       mv /cloned/* /repo"
+      "git init &&
+      git remote add origin https://github.com/topi-banana/Minecraft_on_Docker.git &&
+      git fetch --all --prune
+      git pull origin main"
     tty: true
     stdin_open: true
     volumes:
