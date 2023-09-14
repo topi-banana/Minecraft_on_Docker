@@ -7,7 +7,7 @@ services:
       TZ: Asia/Tokyo
       TYPE: PAPER
       DIFFICULTY: peaceful
-      MEMORY: 2G
+      MEMORY: 8G
       OPS: topi_banana
     volumes:
       - mcData:/data
@@ -19,7 +19,7 @@ services:
          - node.hostname == worker01
       resources:
         limits:
-          memory: 2560M
+          memory: 8192M
     depends_on:
       - filebrowser
   filebrowser:
